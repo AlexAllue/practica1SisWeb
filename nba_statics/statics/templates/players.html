@@ -1,0 +1,12 @@
+<p>Players:</p>
+{%if players_list %}
+	<ul>
+	{%for player in players_list %}
+		<li><a href="/players/{{player.first_name}}/"> {{player.first_name}}, {{player.last_name}} </a>
+		</li>
+		
+	{%endfor %}
+	</ul>
+{%else %}
+	<p>No players avaliable</p>
+{%endif %}

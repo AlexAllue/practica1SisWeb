@@ -1,0 +1,4 @@
+<p>Select your league </p>
+{% for league in leagues%}
+	<li><a href="/leagues/{{league.league_id}}/">{{league.league_name}}</a></li>
+{% endfor %}

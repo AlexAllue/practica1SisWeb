@@ -1,0 +1,106 @@
+# Create your views here.
+from django.http import HttpResponse, Http404
+from django.template import Context, loader
+from django.shortcuts import render_to_response, render
+from statics.models import*
+
+
+def mainpage(request):
+	return render_to_response("mainpage.html")
+
+
+def players(request):
+	players_list = Player.objects.all()
+	context = Context({
+		'players_list': players_list,
+	})
+	return render(request, 'players.html', context)
+
+
+def playerdetail(request, player_name):
+	try:
+		playerobject = Player.objects.get(first_name=player_name)
+		playerdetail = PlayerGeneral.objects.get(player=playerobject)
+	except Player.DoesNotExist:
+		raise Http404
+	return render(request, 'playerdetail.html', {'player': playerdetail })
+
+
+def teams(request):
+	teams_list = Team.objects.all()
+	return render(request, 'teams.html', {'teams_list':teams_list})
+
+
+def teaminfo(request, team_name):
+	try:
+		teamobject = Team.objects.get(name=team_name)
+		team = TeamGeneral.objects.get(team = teamobject)
+		players = team.players.all
+		context = Context({
+			'team': team,
+			'players': players
+		})
+	except TeamGeneral.DoesNotExist:
+		raise Http404
+	return render(request, 'teaminfo.html', context)
+
+
+def games(request):
+	games = Game.objects.all()
+	return render(request, 'games.html', {'games': games})
+
+
+def gameinfo(request, game_id):
+	try:
+		game = Game.objects.get(game_id=game_id)
+		local = game.local
+		visitor = game.visitor
+
+		context = Context({
+			'game': game,
+			'local': local,
+			'visitor': visitor
+		})
+	except Game.DoesNotExist:
+		raise Http404
+	return render(request, 'gameinfo.html', context)
+
+
+def leagues(request):
+	try:
+		leagues = League.objects.all()
+		context = Context({
+			'leagues':leagues
+		})
+	except League.DoesNotExist:
+		raise Http404
+	return render(request, 'leagues.html', context)
+
+
+def leagueinfo(request,league_id):
+	try:
+		league = League.objects.get(league_id=league_id)
+		players = league.league_players
+		teams = league.league_teams
+		games = league.league_games
+		context = Context({
+			'league': league,
+			'players': players,
+			'teams': teams,
+			'games': games
+		})
+	except League.DoesNotExist:
+		raise Http404
+	return render(request, 'leagueinfo.html', context)
+
+
+
+
+
+
+
+
+
+
+
+		

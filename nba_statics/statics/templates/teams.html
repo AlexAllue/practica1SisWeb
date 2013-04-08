@@ -1,0 +1,12 @@
+<p>Teams:</p>
+{%if teams_list %}
+	<ul>
+	{%for team in teams_list %}
+		<li><a href="/teams/{{team.name}}/">{{team.name}}</a>
+		</li>
+		
+	{%endfor %}
+	</ul>
+{%else %}
+	<p>No teams avaliable</p>
+{%endif %}
