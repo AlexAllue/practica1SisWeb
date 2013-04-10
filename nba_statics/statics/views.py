@@ -6,7 +6,10 @@ from statics.models import*
 
 
 def mainpage(request):
-	return render_to_response("mainpage.html")
+	var = Context({
+		'user':request.user
+	})
+	return render_to_response("mainpage.html", var)
 
 
 def players(request):
@@ -17,9 +20,9 @@ def players(request):
 	return render(request, 'players.html', context)
 
 
-def playerdetail(request, player_name):
+def playerdetail(request, player_id):
 	try:
-		playerobject = Player.objects.get(first_name=player_name)
+		playerobject = Player.objects.get(player_id=player_id)
 		playerdetail = PlayerGeneral.objects.get(player=playerobject)
 	except Player.DoesNotExist:
 		raise Http404
@@ -31,9 +34,9 @@ def teams(request):
 	return render(request, 'teams.html', {'teams_list':teams_list})
 
 
-def teaminfo(request, team_name):
+def teaminfo(request, team_id):
 	try:
-		teamobject = Team.objects.get(name=team_name)
+		teamobject = Team.objects.get(team_id=team_id)
 		team = TeamGeneral.objects.get(team = teamobject)
 		players = team.players.all
 		context = Context({

@@ -1,17 +1,24 @@
-<html lang="en"> 
+<html>
 	<head>
-		<title> </title>
+		<title>Mainpage</title>
 	</head>
-	
 	<body>
-		<h1> Welcome to my homepage </h1>
-		<p>What are you looking for? </p> 
-		<ul>
-			<li><a href="/players">Players</li>
-			<li><a href="/teams">Teams</li>
-			<li><a href="/games">Games</li>
-			<li><a href="/leagues">Leagues</li>	
-		</ul>
+		{% if user.username %}
+			<p>Welcome {{ user.username }}!</p>
+			<p> What are you looking for? </p> 
+			<ul>
+				<li><a href="/players">Players</li>
+				<li><a href="/teams">Teams</li>
+				<li><a href="/games">Games</li>
+				<li><a href="/leagues">Leagues</li>	
+			</ul>
+		{% else %}
+			<p>You're not welcome:
+			First do: <a href="/login/">sign in</a>
+			for use the app.</p>
+		{% endif %}
+
+
 
 	</body>
 </html>

@@ -24,7 +24,7 @@
 		<div id=players style="display:none">
 			<ul>
 				{%for player in players.all %}
-				<li><a href="/players/{{player.player.first_name}}">{{player.player.last_name}}, {{player.player.first_name}}</a> </li>
+				<li><a href="/players/{{player.player.player_id}}">{{player.player.last_name}}, {{player.player.first_name}}</a> </li>
 				{% endfor %}
 			</ul>
 		</div>
@@ -33,7 +33,7 @@
 		<div id=teams style="display:none">
 			<ul>
 				{% for team in teams.all %}
-				<li><a href="/teams/{{team.team.name}}">{{team.team.name}}</a></li>
+				<li><a href="/teams/{{team.team.team_id}}">{{team.team.name}}</a></li>
 				{% endfor %}
 			</ul>	
 		</div>

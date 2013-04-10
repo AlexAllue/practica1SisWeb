@@ -1,18 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="StyleSheet" href="styles.css" type="text/css">
+</head>
+
+<body>
+
+<h1>GAMEINFO</h1>
 <p>Results of match: {{local.team.name}}  {{game.result}}  {{visitor.team.name}} </p>
 
+
+
 <ul>
-	<li><a href="/teams/{{local.team.name}}/">{{local.team.name}}</a></li>
-	<table>
+	<li><a href="/teams/{{local.team.team_id}}/">{{local.team.name}}</a></li>
+	<table border="1">
 		<tr>
-			<td>name </td>
-			<td>points </td>
-			<td>rebounds </td>
-			<td>assists </td>
-			<td>valoration </td>
+			<th>name </th>
+			<th>points </th>
+			<th>rebounds </th>
+			<th>assists </th>
+			<th>valoration </th>
 		</tr>
 	{% for playerlocal in local.players.all %}
 		<tr>
-			<td><a href="/players/{{playerlocal.player.first_name}}">{{playerlocal.player.last_name}}, {{playerlocal.player.first_name}} </a><td>
+			<td><a href="/players/{{playerlocal.player.player_id}}">{{playerlocal.player.last_name}}, {{playerlocal.player.first_name}} </a>
 			<td>{{playerlocal.points}}</td>
 			<td>{{playerlocal.rebounds}}</td>
 			<td>{{playerlocal.assists}}</td>
@@ -24,18 +35,18 @@
 </ul>
 <ul>
 
-	<li><a href="/teams/{{visitor.team.name}}/">{{visitor.team.name}}</a></li>
-	<table>
+	<li><a href="/teams/{{visitor.team.team_id}}/">{{visitor.team.name}}</a></li>
+	<table border="1">
 		<tr>
-			<td>name </td>
-			<td>points </td>
-			<td>rebounds </td>
-			<td>assists </td>
-			<td>valoration </td>
+			<th>name </th>
+			<th>points </th>
+			<th>rebounds </th>
+			<th>assists </th>
+			<th>valoration </th>
 		</tr>
 	{% for playervisitor in visitor.players.all %}
 		<tr>
-			<td><a href="/players/{{playerlocal.player.first_name}}">{{playervisitor.player.last_name}}, {{playervisitor.player.first_name}} </a><td>
+			<td><a href="/players/{{playervisitor.player.player_id}}">{{playervisitor.player.last_name}}, {{playervisitor.player.first_name}} </a>
 			<td>{{playervisitor.points}}</td>
 			<td>{{playervisitor.rebounds}}</td>
 			<td>{{playervisitor.assists}}</td>
@@ -45,3 +56,5 @@
 	</table>
 
 </ul>
+</body>
+</html>

@@ -24,13 +24,13 @@
 		<div id=players style="display:none">
 			<ul>
 				{%for player in players.all %}
-				<li><a href="/players/{{player.player.first_name}}">{{player.player.last_name}}, {{player.player.first_name}}</a> </li>
+				<li><a href="/players/{{player.player.player_id}}">{{player.player.last_name}}, {{player.player.first_name}}</a> </li>
 				{% endfor %}
 			</ul>
 		</div>
 
 			<li><a href="javascript:show_div('teams')">Teams</a></li>
-		<div id=teams>
+		<div id=teams style="display:none">
 			<ul>
 				{% for team in teams.all %}
 				<li><a href="/teams/{{team.team.name}}">{{team.team.name}}</a></li>
@@ -39,7 +39,7 @@
 		</div>
 
 			<li><a href="javascript:show_div('games')">Games</a></li>
-		<div id=games>
+		<div id=games style="display:none">
 			<ul>
 				{% for game in games.all %}
 				<li><a href="/games/{{game.game_id}}">{{game.local.team.name}} vs {{game.visitor.team.name}}, {{game.date}}</a></li>

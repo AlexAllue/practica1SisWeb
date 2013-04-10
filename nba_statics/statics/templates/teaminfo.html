@@ -5,7 +5,7 @@
 <p> players: </p>
 	<ul>
 	{%for player in players.all%}
-		<li><a href="/players/{{player.player.first_name}}/"> {{player.player.first_name}}, {{player.player.last_name}} </a>
+		<li><a href="/players/{{player.player.player_id}}/"> {{player.player.first_name}}, {{player.player.last_name}} </a>
 		</li>
 		
 	{%endfor %}

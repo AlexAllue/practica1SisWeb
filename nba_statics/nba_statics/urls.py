@@ -17,11 +17,12 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',mainpage),
     url(r'^players/$', players),
-    url(r'^players/(?P<player_name>\w+)/$', playerdetail),
+    url(r'^players/(?P<player_id>\d+)/$', playerdetail),
     url(r'^teams/$', teams),
-    url(r'^teams/(?P<team_name>\w+)/$', teaminfo),
+    url(r'^teams/(?P<team_id>\d+)/$', teaminfo),
     url(r'^games/$', games),
     url(r'^games/(?P<game_id>\d+)/$', gameinfo),
     url(r'^leagues/$', leagues),
-    url(r'^leagues/(?P<league_id>\d+)/$', leagueinfo)
+    url(r'^leagues/(?P<league_id>\d+)/$', leagueinfo),
+    url(r'^login/$','django.contrib.auth.views.login' )
 )

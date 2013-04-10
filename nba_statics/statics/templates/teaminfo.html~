@@ -4,7 +4,7 @@
 <p> League position: {{team.team.league_position}}<p>
 <p> players: </p>
 	<ul>
-	{%for player in team.players.all%}
+	{%for player in players.all%}
 		<li><a href="/players/{{player.player.first_name}}/"> {{player.player.first_name}}, {{player.player.last_name}} </a>
 		</li>
 		
