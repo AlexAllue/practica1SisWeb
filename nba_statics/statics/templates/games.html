@@ -1,0 +1,6 @@
+<p>Games</p>
+<ul>
+	{%for game in games%}
+		<li><a href="/games/{{game.game_id}}/"> {{game.local.team.name}} vs {{game.visitor.team.name}}, time: {{game.date}}</li>
+	{% endfor %}
+</ul>

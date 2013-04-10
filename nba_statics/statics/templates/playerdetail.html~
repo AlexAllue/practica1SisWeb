@@ -1,0 +1,4 @@
+<p>{{player.player.first_name}} {{player.player.last_name}} </p
+<p> age={{player.player.age}}</p
+<p> position={{player.player.position}}</p
+<p> average = {{player.average}}</p>

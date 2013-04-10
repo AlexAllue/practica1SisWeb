@@ -1,0 +1,13 @@
+<p> Name: {{team.team.name}}<p>
+<p> Division: {{team.team.division}}<p>
+<p> City: {{team.team.city}}<p>
+<p> League position: {{team.team.league_position}}<p>
+<p> players: </p>
+	<ul>
+	{%for player in players.all%}
+		<li><a href="/players/{{player.player.first_name}}/"> {{player.player.first_name}}, {{player.player.last_name}} </a>
+		</li>
+		
+	{%endfor %}
+	</ul>
+

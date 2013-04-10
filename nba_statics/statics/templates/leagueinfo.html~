@@ -1,0 +1,53 @@
+<html>
+	<head>	
+		<title>League information</title>
+		<script language="JavaScript" type="text/javascript"> 
+		function hide_div(id){
+			document.getElementById(id).style.display="none";
+		}
+
+		function show_div(id_to_search){
+			hide_div("players");
+			hide_div("teams");
+			hide_div("games");
+			div = document.getElementById(id_to_search).style.display="block";
+		}
+
+		 </script>
+	</head>
+	<body>
+
+		<p>Welcome to {{league.league_name}} statics</p>
+		<p>What you want to search?</p>
+		<ul>
+			<li><a href="javascript:show_div('players')">Players</a></li>
+		<div id=players style="display:none">
+			<ul>
+				{%for player in players.all %}
+				<li><a href="/players/{{player.player.first_name}}">{{player.player.last_name}}, {{player.player.first_name}}</a> </li>
+				{% endfor %}
+			</ul>
+		</div>
+
+			<li><a href="javascript:show_div('teams')">Teams</a></li>
+		<div id=teams>
+			<ul>
+				{% for team in teams.all %}
+				<li><a href="/teams/{{team.team.name}}">{{team.team.name}}</a></li>
+				{% endfor %}
+			</ul>	
+		</div>
+
+			<li><a href="javascript:show_div('games')">Games</a></li>
+		<div id=games>
+			<ul>
+				{% for game in games.all %}
+				<li><a href="/games/{{game.game_id}}">{{game.local.team.name}} vs {{game.visitor.team.name}}, {{game.date}}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</body>
+</html>
+
+
+</ul>

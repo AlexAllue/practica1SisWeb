@@ -1,0 +1,47 @@
+<p>Results of match: {{local.team.name}}  {{game.result}}  {{visitor.team.name}} </p>
+
+<ul>
+	<li><a href="/teams/{{local.team.name}}/">{{local.team.name}}</a></li>
+	<table>
+		<tr>
+			<td>name </td>
+			<td>points </td>
+			<td>rebounds </td>
+			<td>assists </td>
+			<td>valoration </td>
+		</tr>
+	{% for playerlocal in local.players.all %}
+		<tr>
+			<td><a href="/players/{{playerlocal.player.first_name}}">{{playerlocal.player.last_name}}, {{playerlocal.player.first_name}} </a><td>
+			<td>{{playerlocal.points}}</td>
+			<td>{{playerlocal.rebounds}}</td>
+			<td>{{playerlocal.assists}}</td>
+			<td>{{playerlocal.valoration}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+</ul>
+<ul>
+
+	<li><a href="/teams/{{visitor.team.name}}/">{{visitor.team.name}}</a></li>
+	<table>
+		<tr>
+			<td>name </td>
+			<td>points </td>
+			<td>rebounds </td>
+			<td>assists </td>
+			<td>valoration </td>
+		</tr>
+	{% for playervisitor in visitor.players.all %}
+		<tr>
+			<td><a href="/players/{{playerlocal.player.first_name}}">{{playervisitor.player.last_name}}, {{playervisitor.player.first_name}} </a><td>
+			<td>{{playervisitor.points}}</td>
+			<td>{{playervisitor.rebounds}}</td>
+			<td>{{playervisitor.assists}}</td>
+			<td>{{playervisitor.valoration}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+</ul>
