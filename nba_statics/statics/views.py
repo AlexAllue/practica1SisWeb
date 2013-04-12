@@ -3,7 +3,13 @@ from django.http import HttpResponse, Http404
 from django.template import Context, loader
 from django.shortcuts import render_to_response, render
 from statics.models import*
+from django.utils import simplejson
 
+def webFormat(request, torender, htmlpage):
+	typeResponse = request.GET.get('format','html')
+	if typeResponse == 'json':
+		return typeResponse = httpResponse(simplejson.dumps(torender, mimetype='application/json')
+	else return typeResponse = httpResponse(htmlpage, torender)
 
 def mainpage(request):
 	var = Context({
