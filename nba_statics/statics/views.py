@@ -19,6 +19,7 @@ def players(request):
 	})
 	return render(request, 'players.html', context)
 
+// class PlayerDetail(CreateView):
 
 def playerdetail(request, player_id):
 	try:
